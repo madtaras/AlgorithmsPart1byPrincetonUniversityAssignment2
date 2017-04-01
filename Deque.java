@@ -1,4 +1,3 @@
-import java.util.LinkedList;
 import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
@@ -58,6 +57,7 @@ public class Deque<Item> implements Iterable<Item> {
         Item item = first.item;
         first = first.next;
 //        first.previous = null;
+        dequeSize -= 1;
         if (isEmpty()) last = null;
         return item;
     }
@@ -68,6 +68,7 @@ public class Deque<Item> implements Iterable<Item> {
         Item item = last.item;
         last = last.previous;
 //        last.next = null;
+        dequeSize -= 1;
         if (isEmpty()) first = null;
         return item;
     }
@@ -102,5 +103,8 @@ public class Deque<Item> implements Iterable<Item> {
         deq.addFirst(4);
         deq.addLast(10);
         System.out.println(deq.removeFirst());
+        System.out.println(deq.removeLast());
+        System.out.println(deq.size());
+        System.out.println(deq.isEmpty());
     }
 }
