@@ -2,9 +2,9 @@ import java.util.Iterator;
 
 public class Deque<Item> implements Iterable<Item> {
     private class Node {
-        Item item;
-        Node next;
-        Node previous;
+        private Item item;
+        private Node next;
+        private Node previous;
     }
     private int dequeSize = 0;
     private Node first;
@@ -56,7 +56,6 @@ public class Deque<Item> implements Iterable<Item> {
 
         Item item = first.item;
         first = first.next;
-//        first.previous = null;
         dequeSize -= 1;
         if (isEmpty()) last = null;
         return item;
@@ -67,7 +66,6 @@ public class Deque<Item> implements Iterable<Item> {
 
         Item item = last.item;
         last = last.previous;
-//        last.next = null;
         dequeSize -= 1;
         if (isEmpty()) first = null;
         return item;
